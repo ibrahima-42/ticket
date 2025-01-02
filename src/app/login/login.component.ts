@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthentificationService } from '../../Services/auth/authentification.service';
 import { LoginResponse } from '../interfaces/login-response.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -23,15 +24,16 @@ export class LoginComponent {
 
   constructor(
     private fb : FormBuilder,
-    private authService: AuthentificationService
+    private authService: AuthentificationService,
+    private route: Router
   ){
 
   }
 
   ngOnInit(): void {
     this.logins = this.fb.group({
-      email: ['',[Validators.required, Validators.email]],
-      password: ['',Validators.required , Validators.minLength(6)]
+      email: ['',[Validators.required]],
+      password: ['',Validators.required ]
     })
   }
 
@@ -50,7 +52,7 @@ export class LoginComponent {
         (data: LoginResponse) => {
           localStorage.setItem('token', data.token);
           console.log(data);
-          alert('vous etes connecte');
+          this.route.navigate(['/home']);
         },
         (error) => {
           console.log(error);

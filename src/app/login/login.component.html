@@ -1,7 +1,7 @@
-<form  (ngSubmit)="login()">
+<form [formGroup]="logins"  (ngSubmit)="login()">
   <label for="">Email</label>
-  <input type="text" name="email" placeholder="email">
+  <input type="text" name="email" formControlName="email" placeholder="email">
   <label for="Password">Password</label>
-  <input type="password" name="password" placeholder="votre mot de passe">
+  <input type="password" name="password" formControlName="password" placeholder="votre mot de passe">
   <button type="submit">Se connecter</button>
 </form>
