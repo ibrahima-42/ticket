@@ -1,0 +1,15 @@
+<form [formGroup]="register" (ngSubmit)="Registe()">
+  <label for="nomComplete">nomComplete</label>
+  <input type="text" id="nomComplete" formControlName="nomComplete" placeholder="nomComplete">
+
+  <label for="telephone">Telephone</label>
+  <input type="text" id="telephone" formControlName="telephone" placeholder="telephone">
+
+  <label for="email">Email</label>
+  <input type="text" id="email" formControlName="email" placeholder="email">
+
+  <label for="password">Password</label>
+  <input type="password" id="password" formControlName="password" placeholder="votre mot de passe">
+
+  <button type="submit">S'inscrire</button>
+</form>
