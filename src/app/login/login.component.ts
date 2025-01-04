@@ -48,11 +48,18 @@ export class LoginComponent {
 
   login():void {
     if(this.logins.valid){
-      this.authService.Login(this.logins.value.email, this.logins.value.password).subscribe(
+      this.authService.Login(
+        this.logins.value.email,
+        this.logins.value.password
+      ).subscribe(
         (data: LoginResponse) => {
-          localStorage.setItem('token', data.token);
-          console.log(data);
-          this.route.navigate(['/home']);
+          if(data.accessToken){
+            localStorage.setItem('token', data.accessToken);
+            console.log(data);
+            this.route.navigate(['/home']);
+          }else{
+            alert(data.message);
+          }
         },
         (error) => {
           console.log(error);

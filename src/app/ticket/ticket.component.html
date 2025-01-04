@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="tickets">
+  <div class="container">
+    <h1>hello ticket</h1>
+
+    <div class="listeTicket">
+      <ul *ngIf="tickets && tickets.length > 0; else noTickets" id="ul-ticket">
+        <li *ngFor="let ticket of tickets ; let i = index">
+          <p>{{ticket.name}}</p>
+          <p>{{ticket.price}}</p>
+          <p>{{ticket.category.name}}</p>
+          <p>{{ticket.stockQuantity}}</p>
+        </li>
+      </ul>
+
+      <ng-template #noTickets>
+        <p>pas de tickets disponible</p>
+      </ng-template>
+      
+    </div>
+  </div>
+
+</div>

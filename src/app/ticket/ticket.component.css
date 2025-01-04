@@ -1,0 +1,17 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+#ul-ticket {
+  display: flex;
+  gap: 60px;
+}
+
+#ul-ticket li {
+  list-style: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+}

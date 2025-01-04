@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { AuthentificationService } from '../../Services/auth/authentification.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { LoginResponse } from '../interfaces/login-response.interface';
 
 
 @Component({
@@ -40,17 +41,29 @@ register!: FormGroup;
         this.register.value.nomComplete ,
         this.register.value.email,
         this.register.value.password,
-        this.register.value.telephone,
-      ).subscribe(
-          (data)=>{
-            console.log('register sucess',data);
+        this.register.value.telephone
+      ).subscribe({
+        next: (response: any) => {
+          // Vérifiez la structure exacte de la réponse
+          console.log('Réponse complète :', response);
+          
+          // Ajustez en fonction de la structure réelle de la réponse
+          const token = response.accessToken || response.data?.accessToken;
+          
+          if (token) {
+            localStorage.setItem('token', token);
+            console.log('Inscription réussie', response);
             this.route.navigate(['/login']);
-          },
-          (error)=>{
-            console.log('erreur l`ors de register',error);
-            alert(`Erreur de resgiter`);
+          } else {
+            console.error('Aucun token trouvé dans la réponse');
+            alert('Erreur lors de la récupération du token');
           }
-        )
+        },
+        error: (error) => {
+          console.error('Erreur lors de l\'inscription', error);
+          alert('Erreur lors de l\'inscription');
+        }
+      })
     }
   }
 }
