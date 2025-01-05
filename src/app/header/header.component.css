@@ -4,6 +4,10 @@
   justify-content: space-between;
 }
 
+.header h1 {
+  font-family: 'poppins',sans-serif;
+}
+
 .container {
   width: 80%;
   margin: auto;
@@ -18,6 +22,19 @@
 #sous-menu li a  {
   text-decoration: none;
   color: black;
+  font-family: 'inter',sans-serif;
+  font-size: 16px;
+}
+
+#logout {
+  list-style: none;
+}
+
+#logout a {
+  color: black;
+  text-decoration: none;
+  font-family: 'inter',sans-serif;
+  font-size: 16px;
 }
 
 

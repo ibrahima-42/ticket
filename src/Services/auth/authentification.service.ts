@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 import { LoginResponse } from '../../app/interfaces/login-response.interface';
 
 const BASIC_URL = 'http://localhost:8080/api/v1/auth';
@@ -21,6 +21,15 @@ export class AuthentificationService {
 
   Register(nomComplete: String , email: String , password: String ,telephone: String): Observable<any> {
       return this.http.post(`${BASIC_URL}/register`, { nomComplete, telephone, email, password });
+  }
+
+  Logout(): Observable<any> {
+    return this.http.post(`${BASIC_URL}/logout`, {}).pipe(
+      finalize(() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+      })
+    )
   }
 
 }

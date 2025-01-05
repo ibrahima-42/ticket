@@ -5,7 +5,8 @@
 
 #ul-ticket {
   display: flex;
-  gap: 60px;
+  gap: 20px;
+  padding: 0px;
 }
 
 #ul-ticket li {
@@ -13,5 +14,18 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
-  width: 300px;
+  width: 340px;
+}
+
+#ul-ticket li p {
+  font-weight: 600;
+  font-family: 'inter',sans-serif;
+}
+
+#ul-ticket li p span {
+  font-weight: 400;
+}
+
+.tickets h1 {
+  font-family: 'poppins',sans-serif;
 }

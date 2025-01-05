@@ -1,15 +1,19 @@
 <app-header></app-header>
 <div class="tickets">
   <div class="container">
-    <h1>hello ticket</h1>
+    <h1>Liste tickets</h1>
 
     <div class="listeTicket">
       <ul *ngIf="tickets && tickets.length > 0; else noTickets" id="ul-ticket">
         <li *ngFor="let ticket of tickets ; let i = index">
-          <p>{{ticket.name}}</p>
-          <p>{{ticket.price}}</p>
-          <p>{{ticket.category.name}}</p>
-          <p>{{ticket.stockQuantity}}</p>
+          <div class="two">
+            <p>Nom:<span>{{ticket.name}}</span></p>
+            <p>Quantity:<span>{{ticket.stockQuantity}}</span></p>
+          </div>
+          <div class="one">
+            <p>Category:<span>{{ticket.category?.name}}</span>
+            <p>Prix:<span>{{ticket?.price}}</span>
+          </div>
         </li>
       </ul>
 
