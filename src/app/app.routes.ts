@@ -3,6 +3,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { ShopComponent } from './shop/shop.component';
 
 export const routes:
   Routes = [
@@ -10,5 +11,6 @@ export const routes:
     {path :'acceuil', component: AcceuilComponent},
     {path :'login', component: LoginComponent},
     {path: 'home' , component: AcceuilComponent},
-    {path: 'ticket' , component: TicketComponent}
+    {path: 'ticket' , component: TicketComponent},
+    {path: 'shop' , component: ShopComponent}
   ];

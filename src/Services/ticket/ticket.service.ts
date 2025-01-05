@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -23,5 +23,23 @@ export class TicketService {
     return this.http.get(`${BASIC_URL}/all`, {headers});
   }
 
+  categoryConcert(categoryName:string): Observable<any> {
+    const accessToken = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'content-type':'Application/json',
+      'Authorization' : `Bearer ${accessToken}`
+    })
+    const params = new HttpParams().set('categoryName', categoryName);
+    return this.http.get(`${BASIC_URL}/categories/filter`,{headers,params})
+  }
+
+  allCategory(): Observable<any> {
+    const accessToken = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'content-type':'Application/json',
+      'Authorization' : `Bearer ${accessToken}`
+    })
+    return this.http.get(`${BASIC_URL}/categories/all` ,{headers})
+  }
 
 }

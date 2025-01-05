@@ -29,3 +29,33 @@
 .tickets h1 {
   font-family: 'poppins',sans-serif;
 }
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.zone {
+  padding-top: 20px;
+}
+
+.zone li {
+  padding-top: 5px;
+  list-style: none;
+  /* display: none; */
+}
+
+.zone li  {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+#cat {
+  width: 100px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+
